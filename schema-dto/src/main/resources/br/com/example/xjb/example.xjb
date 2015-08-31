@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jxb:bindings jxb:extensionbindingprefixes="annox" version="2.1" xmlns:annox="http://annox.dev.java.net" xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/jaxb"
+	xsi:schemalocation="
+		http://java.sun.com/xml/ns/jaxb 
+		http://annox.dev.java.net 
+		http://example.com.br/model/Example">
+
+	<jxb:bindings schemaLocation="../../../../../../../src/main/xsd/br/com/example/ExampleDomain-1.0.xsd" node="/xs:schema">
+
+		<jxb:bindings node="xs:complexType[@name='ExampleType']">
+			<annox:annotate>
+				<annox:annotate annox:class="javax.xml.bind.annotation.XmlRootElement" name="ExampleType" />
+			</annox:annotate>
+		</jxb:bindings>
+
+		<jxb:bindings node="xs:complexType[@name='ExampleType']/xs:sequence/xs:element[@name='identity']">
+			<jxb:class ref="br.com.example.dto.user.IdentityType" />
+			<annox:annotate target="field">
+				<annox:annotate annox:class="javax.validation.constraints.Null" />
+			</annox:annotate>
+		</jxb:bindings>
+
+	</jxb:bindings>
+
+</jxb:bindings>
